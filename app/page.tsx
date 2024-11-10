@@ -47,7 +47,10 @@ export default async function Home() {
     <div>
       {homepage.title}
       <Copy content={homepage.copy} />
-      <div className={`grid grid-cols-${homepage.logos.assets.length} gap-4 lg:gap-10 px-5 lg:px-20 bg-gray-100`}>
+      <div 
+        className={`grid gap-4 lg:gap-10 px-5 lg:px-20 bg-gray-100`}
+        style={{ gridTemplateColumns: `repeat(${homepage.logos.assets.length}, minmax(0, 1fr))`}}
+      >
         {homepage.logos.assets.map((logo: { id: string | undefined; url: string | undefined; alt: string | ""; }) =>
           <div key={logo.id} className="w-full h-full flex justify-center items-center">
             <img
