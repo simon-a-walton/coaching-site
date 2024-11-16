@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      width: {
+        lg: "600px",
+        xl: "850px"
+      }
     },
   },
   plugins: [],
