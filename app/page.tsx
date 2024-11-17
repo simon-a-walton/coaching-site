@@ -75,7 +75,7 @@ export default async function Home() {
 
   return homepage && (
     <main className="space-y-12 lg:space-y-24">
-      {title}
+      <h1>{title}</h1>
       <Copy content={copy} />
       <section 
         className={`grid gap-4 lg:gap-10 px-5 lg:px-20 bg-gray-100`}
@@ -109,6 +109,9 @@ export default async function Home() {
           )
         })}
       </section>
+      <a href="/how-does-it-work" aria-label="Learn more" className="text-white bg-gray-500 rounded-2xl px-5 py-3">
+          Learn more about services
+      </a>
       <section>
         <h3 className="font-bold">Benefits of coaching</h3>
         <table className="w-full">
