@@ -14,7 +14,8 @@ export default {
       },
       width: {
         lg: "600px",
-        xl: "850px"
+        xl: "850px",
+        xxl: "1000px"
       }
     },
   },
