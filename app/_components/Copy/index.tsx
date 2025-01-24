@@ -4,6 +4,6 @@ interface iCopy {
 
 export default function Copy({ content }: iCopy) {
     return (
-        <div contentEditable="false" dangerouslySetInnerHTML={{ __html: content }} />
+        <div contentEditable="false" className="copyblock" dangerouslySetInnerHTML={{ __html: content }} />
     )
 }

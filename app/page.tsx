@@ -75,7 +75,26 @@ export default async function Home() {
 
   return homepage && (
     <main className="space-y-12 lg:space-y-24">
-      <h1>{title}</h1>
+      <nav>
+        <h1>{title}</h1>
+        <ul>
+        <li>
+            <a href="#services">Services</a>
+          </li>
+          <li>
+            <a href="#benefits">Benefits of coaching</a>
+          </li>
+          <li>
+            <a href="#testimonials">Testimonials</a>
+          </li>
+          <li>
+            <a href="how-does-it-work">How does it work?</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
       <Copy content={copy} />
       <section 
         className={`grid gap-4 lg:gap-10 px-5 lg:px-20 bg-gray-100`}
@@ -93,27 +112,36 @@ export default async function Home() {
           </div>
         )}
       </section>
-      <section className="flex lg:flex-row flex-col gap-5 lg:gap-20">
-        {serviceCards.length > 0 && serviceCards.map((card: { id: string; title: string ; copy: string; image: { url: string | undefined, alt: string | undefined; }; }) => {
-          return (
-            <div key={card.id}>
-              <h3 className="text-bold">{card.title}</h3>
-              <Copy content={card.copy} />
-              <img
-                src={card.image.url}
-                alt={card.image.alt}
-                width="100%"
-                height="auto"
-              />
-            </div>
+      <section className="container mx-auto">
+        <h2 className="font-bold text-4xl mb-20" id="services">Services</h2>
+        {serviceCards.length > 0 && (
+          <div className="flex grid grid-cols-1 xl:grid-cols-3 gap-5 lg:gap-20 h-full xl:mx-0 mx-8">
+            {serviceCards.length > 0 && serviceCards.map((card: { id: string; title: string ; copy: string; image: { url: string | undefined, alt: string | undefined; }; }) => {
+              return (
+                <div key={card.id} className="max-w-[900px] mx-auto flex flex-col gap-10 bg-white rounded-xl p-6 xl:p-10">
+                  <div className="flex flex-col grow">
+                    <h3 className="font-bold text-3xl mb-8">{card.title}</h3>
+                    <Copy content={card.copy} />
+                  </div>
+                  <img
+                    src={card.image.url}
+                    alt={card.image.alt}
+                    width="100%"
+                    height="auto"
+                    className="mx-auto rounded-xl"
+                  />
+                </div>
+              )
+            })}
+          </div>
           )
-        })}
+        }
       </section>
       <a href="/how-does-it-work" aria-label="Learn more" className="text-white bg-gray-500 rounded-2xl px-5 py-3">
           Learn more about services
       </a>
       <section>
-        <h3 className="font-bold">Benefits of coaching</h3>
+        <h3 className="font-bold" id="benefits">Benefits of coaching</h3>
         <table className="w-full">
           <tbody className="mx-auto">
             {stats.map((stat: { id: string; stat: string | undefined; description: string |  undefined; }) => {
@@ -132,6 +160,7 @@ export default async function Home() {
         </table>
       </section>
       <section>
+        <h3 id="testimonials">Testimonials</h3>
         {testimonials.map((testimonial: { id: string; name: string | undefined; copy: string; headshotOrLogo: { url: string | undefined; alt: string | undefined; }; }) => {
           return (
             <div key={testimonial.id}>
@@ -151,7 +180,7 @@ export default async function Home() {
         })}
       </section>
       <section>
-        <h3 className="font-bold">
+        <h3 className="font-bold" id="contact">
           Contact
         </h3>
         <Copy content={contactInfo} />
@@ -164,7 +193,9 @@ export default async function Home() {
           />
         </div>
       </section>
-
+      <div className="bg-white rounded-full fixed right-10 bottom-10 px-6 py-4 border border-20 border-[#A2D1FE]">
+        <a href="#contact">Get in touch</a>
+      </div>
     </main>
   )
 }
